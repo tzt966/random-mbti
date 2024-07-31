@@ -1,14 +1,13 @@
 const MBTI_BUTTON = document.getElementById('create-mbti');
 MBTI_BUTTON.addEventListener('click', () => {
-    let mbti_1 = ["E", "I"];
-    let mbti_2 = ["S", "N"];
-    let mbti_3 = ["T", "F"];
-    let mbti_4 = ["J", "P"];
-    let E_or_I = mbti_1[Math.floor(Math.random() * mbti_1.length)];
-    let S_or_N = mbti_2[Math.floor(Math.random() * mbti_2.length)];
-    let T_or_F = mbti_3[Math.floor(Math.random() * mbti_3.length)];
-    let J_or_P = mbti_4[Math.floor(Math.random() * mbti_4.length)];
-    let result = "あなたは" + E_or_I + S_or_N + T_or_F + J_or_P + "です．";
+    //mbtiコードと対応する日本語名称
+    let mbti_code = ["ENTP", "INTP", "INTJ", "ENTJ", "ENFP", "INFP", "INFJ", "ENFJ", "ESTJ", "ISTJ", "ISFJ", "ESFJ", "ESTP", "ISTP", "ISFP", "ESFP"];
+    let mbti_janame = ["討論者", "論理学者", "建築家", "指揮官", "運動家", "仲介者", "提唱者", "主人公", "幹部", "管理者", "擁護者", "執事", "起業家", "巨匠", "冒険家", "エンターテイナー"];
+    //ランダムなmbtiコードの割当
+    let your_mbti = mbti_code[Math.floor(Math.random() * mbti_code.length)];
+    let your_mbti_name = mbti_janame[mbti_code.indexOf(your_mbti)];
+    let result = "あなたは" + your_mbti + "(" + your_mbti_name + ")です．";
+    //htmlに反映
     document.getElementById("your").innerHTML = result;
     document.getElementById("create-mbti").innerHTML = "もう一度診断";
 });
